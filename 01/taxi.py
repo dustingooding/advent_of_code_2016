@@ -114,7 +114,6 @@ taxi = Taxi()
 
 # create list of visited intersections, with current location as only entry
 intersections = [ taxi.intersection ]
-hq_found = False
 hq_intersection = None
 
 # split up instruction list into individual comma-separated steps
