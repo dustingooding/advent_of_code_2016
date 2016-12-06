@@ -11,13 +11,13 @@ class Triangle():
 
 
 with open('input') as f:
-    intput_data = f.readlines()
+    input_data = f.readlines()
+input_data_stripped = [x.strip() for x in input_data]
 
 # Part 1
 
 valid_triangles = 0
-intput_data = [x.strip() for x in intput_data]
-for entry in intput_data:
+for entry in input_data_stripped:
     sides = [int(x) for x in entry.split()]
     triangle = Triangle(sides)
     if triangle.valid():
@@ -28,11 +28,10 @@ print 'part 1:', valid_triangles
 # Part 2
 
 valid_triangles = 0
-intput_data = [x.strip() for x in intput_data]
-for row in range(0,len(intput_data),3):
-    entry_0 = [int(x) for x in intput_data[row].split()]
-    entry_1 = [int(x) for x in intput_data[row+1].split()]
-    entry_2 = [int(x) for x in intput_data[row+2].split()]
+for row in range(0,len(input_data_stripped),3):
+    entry_0 = [int(x) for x in input_data_stripped[row].split()]
+    entry_1 = [int(x) for x in input_data_stripped[row+1].split()]
+    entry_2 = [int(x) for x in input_data_stripped[row+2].split()]
     triangle_0 = Triangle([entry_0[0], entry_1[0], entry_2[0]])
     triangle_1 = Triangle([entry_0[1], entry_1[1], entry_2[1]])
     triangle_2 = Triangle([entry_0[2], entry_1[2], entry_2[2]])

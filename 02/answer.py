@@ -32,7 +32,7 @@ class Keypad:
         return keys[self.current_row][self.current_column]
 
 with open('input') as f:
-    intput_data = f.read()
+    input_data = f.read()
 
 # Part 1
 
@@ -42,7 +42,7 @@ keys = [ [1, 2, 3],
 keypad = Keypad(keys, 1, 1)
 code = ''
 
-for step in intput_data.split('\n'):
+for step in input_data.split('\n'):
     for move in step.strip():
         if move == 'U':
             keypad.up()
@@ -66,7 +66,7 @@ keys = [ [None, None, '1', None, None],
 keypad = Keypad(keys, 2, 0)
 code = ''
 
-for step in intput_data.split('\n'):
+for step in input_data.split('\n'):
     for move in step.strip():
         if move == 'U':
             keypad.up()

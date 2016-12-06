@@ -79,13 +79,13 @@ class Taxi:
         return 'taxi({} h={} b={})'.format(self.intersection, self.heading, self.blocks_from_start())
 
 with open('input') as f:
-    intput_data = f.read().replace('\n', '')
+    input_data = f.read().replace('\n', '')
 
 # Part 1
 taxi = Taxi()
 
 # split up instruction list into individual comma-separated steps
-for step in intput_data.split(', '):
+for step in input_data.split(', '):
     # python slice notation to get first character in the step
     if step[0:1] == 'R':
         taxi.turn_right()
@@ -105,7 +105,7 @@ intersections = [ taxi.intersection ]
 hq_intersection = None
 
 # split up instruction list into individual comma-separated steps
-for step in intput_data.split(', '):
+for step in input_data.split(', '):
     # track beginning of step
     begin_intersection = copy.deepcopy(taxi.intersection)
     # python slice notation to get first character in the step
