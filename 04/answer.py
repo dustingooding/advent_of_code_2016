@@ -44,6 +44,18 @@ class Room:
         else:
             return False
 
+    def decrypt(self):
+        plain_text = ''
+        for letter in self.cypher_text:
+            if letter == '-':
+                plain_text += ' '
+            else:
+                letter_index = ord(letter) - 97
+                shifted_letter_index = (letter_index + self.sector_id) % 26
+                shifted_letter = chr(shifted_letter_index + 97)
+                plain_text += shifted_letter
+        return plain_text
+
 with open('input') as f:
     input_data = f.readlines()
 input_data_stripped = [x.strip() for x in input_data]
@@ -57,3 +69,12 @@ for room in all_rooms:
         sector_id_sum += room.sector_id
 
 print 'part 1:', sector_id_sum
+
+# part 2
+
+all_rooms = [Room(entry) for entry in input_data_stripped]
+for room in all_rooms:
+    if room.real():
+        if 'north' in room.decrypt():
+            print 'part 2:', room.sector_id
+            break
